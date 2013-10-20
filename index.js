@@ -271,10 +271,10 @@ TLD_TOOLS = {
 
     // Attempts to extract the tld, domain and subdomain parts from the supplied 'fqdn' string
     //
-    extract: function(fqdn) {
+    extract: function(fqdn, parseQueryString) {
 
         var tld = [], subdomain = [], domain = '';
-        var urlTokens = url.parse(fqdn);
+        var urlTokens = url.parse(fqdn, parseQueryString);
         var hostName = (undefined != urlTokens.hostname) ? urlTokens.hostname : urlTokens.pathname;
         var hostTokens = hostName.split('.').reverse();
         var htIdx = hostTokens.length;
